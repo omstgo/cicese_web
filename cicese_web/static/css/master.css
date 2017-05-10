@@ -1,0 +1,15 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+  border: 50px solid #003a6b;
+  border-top: 0px;
+}
+
+footer{
+  height: 100px;
+  margin: 0 auto;
+
+}
+
+nav{
+  font-size: 18px
+}

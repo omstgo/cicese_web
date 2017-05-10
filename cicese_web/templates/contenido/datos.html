@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="{% static "css/master.css" %}">
+    <link rel="stylesheet" href="{% static "css/hollow.css" %}">
+
+    <link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css"
+    rel="stylesheet" type="text/css">
+    <link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.5.min.css"
+    rel="stylesheet" type="text/css">
+
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.5.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.20/require.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js" type="text/javascript"></script>
+    <script src="{% static "js/holow-widge.js" %}" type="text/javascript"></script>
+
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+
+            <!--  Code for the hamburger icon-->
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+          </button>
+          <a href="http://www.cicese.edu.mx/" class="navbar-brand">
+            <img src="{% static "images/logo-cicese.png" %}" height="30"alt="">
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'index' %}">Inicio</a></li>
+            <li><a href="{% url 'contenido:datos' %}">Datos</a></li>
+            <li><a href="{% url 'contenido:acceso' %}">Descarga</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="{% url 'contenido:ayuda' %}">Ayuda</a></li>
+            <li><a href="{% url 'contenido:contacto' %}">Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="container">
+
+
+          <h1>Ejemplos de Gráficas Interactivas</h1>
+          <br><br><br><br>
+
+          <!-- Series de tiempo -->
+          <p>Serie de tiempo de temperaturas mensales de la estación 1017</p>
+          <br><br>
+          <div class="bk-root">
+              <div class="bk-plotdiv" id="56e2589c-bb92-4880-ac35-5f0aadc74970"></div>
+          </div>
+
+          <script
+          src="{% static "js/time.js" %}"
+          id="56e2589c-bb92-4880-ac35-5f0aadc74970"
+          data-bokeh-model-id="bdeefb29-c0fd-46fb-a7af-96d6b4922ac4"
+          data-bokeh-doc-id="96b5d0eb-0d23-4047-aa29-149c0a7b169c"
+          ></script>
+
+          <br><br><br><br>
+          <p>Ploteo con interactividad de movimiento</p>
+          <br><br>
+          <!-- Grid Bokeh -->
+          <div style='display: table; margin: 0 auto;'>
+
+          <div class="bk-root">
+              <div class="bk-plotdiv" id="ff2ffb19-9f48-41a0-9642-53a54a3e34f3"></div>
+          </div>
+          <script src="{% static "js/rayo-boke.js" %}" type="text/javascript" id="ff2ffb19-9f48-41a0-9642-53a54a3e34f3">
+          </script>
+
+          <br><br><br><br><br><br><br><br>
+
+          <br><br>
+          <!-- MApas -->
+          <div class="hololayout row row-fluid">
+            <div class="holoframe" id="display_area4578042206cf40ec9be6771bc5f0c599">
+            <div id="_anim_img4578042206cf40ec9be6771bc5f0c599">
+
+            </div>
+            </div>
+            <div class="holowidgets" id="widget_area4578042206cf40ec9be6771bc5f0c599">
+            <form class="holoform well" id="form4578042206cf40ec9be6771bc5f0c599">
+
+
+              <div class="form-group control-group holoformgroup" style=''>
+                <label for="textInput4578042206cf40ec9be6771bc5f0c599_Date">
+                  <strong>Fecha:</strong>
+                </label>
+                <div class="holowell row row-fluid">
+                  <div class="hologroup">
+                    <input type="text" class="holotext form-control input-small"
+                           id="textInput4578042206cf40ec9be6771bc5f0c599_Date" value="" readonly>
+                  </div>
+                  <div class="holoslider"
+                       id="_anim_widget4578042206cf40ec9be6771bc5f0c599_Date"></div>
+                </div>
+              </div>
+            <script src="{% static "js/holo-body.js" %}" type="text/javascript">
+                </script>
+              </form>
+          </div>
+      </div>
+
+
+
+
+
+    </div>
+
+    <br><br><br><br><br><br><br>
+
+    <footer class="footer">
+      <div class="container text-center">
+        <div class="row">
+
+          <div class="col-xs-3">
+            <a href="http://www.redesclim.org.mx/">
+              <img src="{% static "images/Redesclim.png" %}" height="75" alt="">
+            </a>
+          </div>
+          <div class="col-xs-3">
+            <a href="http://clicom-mex.cicese.mx/">
+              <img src="{% static "images/clicom-estaciones.png" %}" height="75" alt="">
+            </a>
+          </div>
+          <div class="col-xs-3">
+            <a href="http://clicom-mex.cicese.mx/malla/index.php">
+              <img src="{% static "images/clicom-malla.png" %}" height="75" alt="">
+            </a>
+          </div>
+          <div class="col-xs-3">
+            <a href="http://clicom-mex.cicese.mx/ciclones/">
+              <img src="{% static "images/clicom-ciclones.png" %}" height="75" alt="">
+            </a>
+          </div>
+
+        </div>
+
+
+      </div>
+    </footer>
+
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.js"
+      integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+      crossorigin="anonymous"></script>
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+      <script src="{% static "js/holow-foot.js" %}" language="javascript">
+      </script>
+  </body>
+</html>
